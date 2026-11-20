@@ -1,4 +1,27 @@
 ﻿# Zoo Java Console Application
+
+Een Java-consoleapplicatie voor een dierentuin met zeven dieren. De applicatie leest één commando per run en toont het resultaat in de console.
+
+## Starten
+
+Open de projectmap in VS Code of IntelliJ IDEA en start de `main`-methode in `src/com/ing/zoo/Zoo.java`. Typ een commando zodra `Voer uw command in:` verschijnt.
+
+## Commando’s
+
+| Commando | Resultaat |
+|---|---|
+| `hello` | Alle zeven dieren groeten. |
+| `hello henk` | Alleen Henk groet. Je kunt ook de naam van een ander dier opgeven. |
+| `give leaves` | Elsa, Dora, Marty en Gina krijgen bladeren. |
+| `give meat` | Henk, Dora, Wally en Sam krijgen voer. Sam krijgt vis. |
+| `perform trick` | Dora, Wally en Sam doen elk een truc. |
+
+## Ontwerp
+
+`Animal` bevat de naam en begroeting van ieder dier. De interfaces `EatsLeaves`, `EatsMeat` en `TrickPerformer` beschrijven welk gedrag een dier ondersteunt. `Zoo` gebruikt die interfaces om per commando de juiste dieren te selecteren. Een aanroep van `eatMeat()` op een `Zebra` wordt daardoor al bij het compileren afgewezen.
+
+De twee toegevoegde dieren zijn Gina de giraffe en Sam de zeeleeuw. Gina eet bladeren. Sam eet vis en balanceert een bal op zijn neus.
+
 ---
 ## Git
 
