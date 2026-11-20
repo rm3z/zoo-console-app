@@ -12,7 +12,9 @@ public class Zoo {
             new Hippo("elsa"),
             new Pig("dora"),
             new Tiger("wally"),
-            new Zebra("marty")
+            new Zebra("marty"),
+            new Giraffe("gina"),
+            new SeaLion("sam")
         );
 
          try (Scanner scanner = new Scanner(System.in)) {
