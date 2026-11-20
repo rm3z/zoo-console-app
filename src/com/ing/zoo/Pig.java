@@ -2,7 +2,7 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Pig extends Animal implements  EatsLeaves, EatsMeat{
+public class Pig extends Animal implements  EatsLeaves, EatsMeat, TrickPerformer{
     public String eatText;
     public String trick;
 

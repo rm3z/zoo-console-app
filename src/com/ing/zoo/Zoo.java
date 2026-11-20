@@ -37,6 +37,8 @@ public class Zoo {
             giveLeaves(animals);
         } else if (command.equals("give meat")) {
             giveMeat(animals);
+        } else if (command.equals("perform trick")){
+            performTricks(animals);
         } else {
             System.out.println("Unknown command: " + command);
         }
@@ -58,6 +60,16 @@ public class Zoo {
             if (animal instanceof EatsMeat) {
                 EatsMeat meatEater = (EatsMeat) animal;
                 meatEater.eatMeat();
+            }
+        }
+    }
+
+        /** Feeds meat to every animal that can eat it. */
+    private static void performTricks(List<Animal> animals) {
+        for (Animal animal : animals) {
+            if (animal instanceof TrickPerformer) {
+                TrickPerformer trickPerformer = (TrickPerformer) animal;
+                trickPerformer.performTrick();
             }
         }
     }

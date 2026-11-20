@@ -2,7 +2,7 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Tiger extends Animal implements EatsMeat{
+public class Tiger extends Animal implements EatsMeat, TrickPerformer{
     public String eatText;
     public String trick;
 
@@ -18,6 +18,7 @@ public class Tiger extends Animal implements EatsMeat{
         System.out.println(eatText);
     }
 
+    @Override 
     public void performTrick()
     {
         Random random = new Random();
