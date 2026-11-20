@@ -1,38 +1,50 @@
 package com.ing.zoo;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Zoo {
-    public static void main(String[] args)
-    {
-        String[] commands = new String[4];
-        commands[0] = "hello";
-        commands[1] = "give leaves";
-        commands[2] = "give meat";
-        commands[3] = "perform trick";
+    /** Registers the animals in order and reads one command from the console. */
+    public static void main(String[] args) {
+        List<Animal> animals = Arrays.asList(
+            new Lion("henk"),
+            new Hippo("elsa"),
+            new Pig("dora"),
+            new Tiger("wally"),
+            new Zebra("marty")
+        );
 
-        Lion henk = new Lion();
-        henk.name = "henk";
-        Hippo elsa = new Hippo();
-        elsa.name = "elsa";
-        Pig dora = new Pig();
-        dora.name = "dora";
-        Tiger wally = new Tiger();
-        wally.name = "wally";
-        Zebra marty = new Zebra();
-        marty.name = "marty";
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Voer uw command in: ");
-
-        String input = scanner.nextLine();
-        if(input.equals(commands[0] + " henk"))
-        {
-            henk.sayHello();
+         try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Voer uw command in: ");
+            if (scanner.hasNextLine()) {
+                handleCommand(scanner.nextLine().trim(), animals);
+            }
         }
-        else
-        {
-            System.out.println("Unknown command: " + input);
+    }
+
+    /** Greets all animals or finds a single animal when a name is provided. */
+    private static void handleCommand(String command, List<Animal> animals) {
+        if (command.equals("hello")) {
+            for (Animal animal : animals) {
+                animal.sayHello();
+            }
+        } else if (command.startsWith("hello ")) {
+            String name = command.substring("hello ".length()).trim();
+            greetByName(name, animals);
+        } else {
+            System.out.println("Unknown command: " + command);
         }
+    }
+
+    /** Prints one animal's greeting or reports that its name could not be found. */
+    private static void greetByName(String name, List<Animal> animals) {
+        for (Animal animal : animals) {
+            if (animal.getName().equals(name)) {
+                animal.sayHello();
+                return;
+            }
+        }
+        System.out.println("Unknown animal: " + name);
     }
 }

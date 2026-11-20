@@ -2,20 +2,13 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Zebra {
-    public String name;
-    public String helloText;
+public class Zebra extends Animal {
     public String eatText;
     public String trick;
 
-    public Zebra()
+    public Zebra(String name)
     {
-    }
-
-    public void sayHello()
-    {
-        helloText = "zebra zebra";
-        System.out.println(helloText);
+        super(name, "zebra zebra");
     }
 
     public void eatLeaves()
