@@ -1,8 +1,6 @@
 package com.ing.zoo;
 
-import java.util.Random;
-
-public class Zebra extends Animal {
+public class Zebra extends Animal implements EatsLeaves{
     public String eatText;
     public String trick;
 
@@ -11,6 +9,7 @@ public class Zebra extends Animal {
         super(name, "zebra zebra");
     }
 
+    @Override 
     public void eatLeaves()
     {
         eatText = "munch munch zank yee bra";

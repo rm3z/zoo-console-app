@@ -24,6 +24,7 @@ public class Zoo {
     }
 
     /** Greets all animals or finds a single animal when a name is provided. */
+    /** Sends a console command to the animals it applies to. */
     private static void handleCommand(String command, List<Animal> animals) {
         if (command.equals("hello")) {
             for (Animal animal : animals) {
@@ -32,8 +33,32 @@ public class Zoo {
         } else if (command.startsWith("hello ")) {
             String name = command.substring("hello ".length()).trim();
             greetByName(name, animals);
+        } else if (command.equals("give leaves")) {
+            giveLeaves(animals);
+        } else if (command.equals("give meat")) {
+            giveMeat(animals);
         } else {
             System.out.println("Unknown command: " + command);
+        }
+    }
+
+    /** Feeds leaves to every animal that can eat them. */
+    private static void giveLeaves(List<Animal> animals) {
+        for (Animal animal : animals) {
+            if (animal instanceof EatsLeaves) {
+                EatsLeaves leafEater = (EatsLeaves) animal;
+                leafEater.eatLeaves();
+            }
+        }
+    }
+
+    /** Feeds meat to every animal that can eat it. */
+    private static void giveMeat(List<Animal> animals) {
+        for (Animal animal : animals) {
+            if (animal instanceof EatsMeat) {
+                EatsMeat meatEater = (EatsMeat) animal;
+                meatEater.eatMeat();
+            }
         }
     }
 

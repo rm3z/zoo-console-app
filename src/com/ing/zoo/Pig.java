@@ -2,7 +2,7 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Pig extends Animal {
+public class Pig extends Animal implements  EatsLeaves, EatsMeat{
     public String eatText;
     public String trick;
 
@@ -11,12 +11,14 @@ public class Pig extends Animal {
         super(name, "Oink Oink Oinkkk!!!");
     }
 
+    @Override
     public void eatLeaves()
     {
         eatText = "munch munch oink";
         System.out.println(eatText);
     }
 
+    @Override
     public void eatMeat()
     {
         eatText = "nomnomnom oink thx";

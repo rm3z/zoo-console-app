@@ -1,6 +1,6 @@
 package com.ing.zoo;
 
-public class Lion extends Animal {
+public class Lion extends Animal implements EatsMeat{
     public String eatText;
 
     public Lion(String name)
@@ -8,6 +8,7 @@ public class Lion extends Animal {
         super(name, "roooaoaaaaar");
     }
 
+    @Override
     public void eatMeat()
     {
         eatText = "nomnomnom thx mate";
